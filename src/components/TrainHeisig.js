@@ -1,6 +1,20 @@
 import HeisigEntryInfo from './HeisigEntryInfo';
+import React, {useState} from "react";
 
 function TrainHeisig(props){
+    const [currentItem, setCurrentItem] = useState(props.heisigCorpus[0]);
+
+    const clickHandler = () => {
+        var itemToSave = getHeisigItemToDisplay(props.heisigCorpus);
+        setCurrentItem(itemToSave);
+    }
+
+    return <div> 
+        <p> her er trainHeisig</p>
+        <button onClick={clickHandler}> newHeisig </button>
+        <HeisigEntryInfo heisigItem={currentItem}> </HeisigEntryInfo>
+    </div>
+
 
     //returns the appropriate heisig item to be displayed
     function getHeisigItemToDisplay(heisigObjects){
@@ -28,19 +42,6 @@ function TrainHeisig(props){
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
-    var currentHeisig = props.heisigCorpus[0];
-
-    function assignToHeisig(heisigObjects){
-        var itemToSave = getHeisigItemToDisplay(props.heisigCorpus);
-        currentHeisig = itemToSave;
-    }
-
-    return <div> 
-        <p> her er trainHeisig</p>
-        <button onClick={assignToHeisig(props.heisigCorpus)}> newHeisig </button>
-        <HeisigEntryInfo heisigItem={currentHeisig}> </HeisigEntryInfo>
-    </div>
 }
 
 export default TrainHeisig;
