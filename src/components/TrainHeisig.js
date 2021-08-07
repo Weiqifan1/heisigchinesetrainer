@@ -5,14 +5,20 @@ import React, {useState} from "react";
 function TrainHeisig(props){
     const [currentItem, setCurrentItem] = useState(props.heisigCorpus[0]);
 
-    const clickHandler = () => {
-        var itemToSave = getHeisigItemToDisplay(props.heisigCorpus);
-        setCurrentItem(itemToSave);
+    const clickHandlerKnowCharacter = () => {
+        var itemToShow = getHeisigItemToDisplay(props.heisigCorpus);
+        setCurrentItem(itemToShow);
     }
 
-    return <div> 
+    const clickHandlerDontKnowCharacter = () => {
+        var itemToShow = getHeisigItemToDisplay(props.heisigCorpus);
+        setCurrentItem(itemToShow);
+    }
+
+    return <div>
         <p> her er trainHeisig</p>
-        <button onClick={clickHandler}> newHeisig </button>
+        <button onClick={clickHandlerKnowCharacter}> know </button>
+        <button onClick={clickHandlerDontKnowCharacter}> dontKnow </button>
         <HeisigEntryInfo heisigItem={currentItem}> </HeisigEntryInfo>
     </div>
 
