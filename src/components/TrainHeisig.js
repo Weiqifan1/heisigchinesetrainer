@@ -3,7 +3,8 @@ import getHeisigItemToDisplay from '../repetitionLogic/basicLogic';
 import React, {useState} from "react";
 
 function TrainHeisig(props){
-    const [currentItem, setCurrentItem] = useState(getHeisigItemToDisplay(props.heisigCorpus));
+    const[currentCorpus, setCurrentCorpus] = useState(props.heisigCorpus);
+    const [currentItem, setCurrentItem] = useState(getHeisigItemToDisplay(currentCorpus));
 
     const clickHandlerKnowCharacter = () => {
         var itemToShow = getHeisigItemToDisplay(props.heisigCorpus);
@@ -11,6 +12,13 @@ function TrainHeisig(props){
     }
 
     const clickHandlerDontKnowCharacter = () => {
+        var changedItem = currentItem;
+        changedItem.repetitionNumber = changedItem.repetitionNumber * 10;
+
+        setCurrentCorpus((previousCorpus) => {
+            return {...previousCorpus, changedItem};
+        });
+
         var itemToShow = getHeisigItemToDisplay(props.heisigCorpus);
         setCurrentItem(itemToShow);
     }
