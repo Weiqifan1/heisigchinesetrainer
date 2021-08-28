@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { MenuItems } from "./MenuItems";
+import React from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = props => {
 
@@ -14,18 +14,12 @@ const Navbar = props => {
                 <div className="menu-icon">
 
                 </div>
-                <ul className=
-                    'nav-menu'>
-                    {MenuItems.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <a className={item.cName} href={item.url} onClick={handleClick}>
-                                    {item.title}
-                                </a>
-                            </li>
-                        )
-                    })}
-                </ul>
+                <div className='nav-menu'>
+                    <Link to="/"> Home </Link>
+                    <Link to="services"> Services</Link>
+
+                </div>
+
             </nav>
         );
 
