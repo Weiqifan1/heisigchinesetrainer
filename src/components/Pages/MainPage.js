@@ -5,6 +5,11 @@ import Home from "./Home";
 import Services from "./Services";
 
 const MainPage = props => {
+
+    function onGreet() {
+        alert("greet");
+    }
+
     return (
         <BrowserRouter>
         <div className="MainPage">
@@ -15,7 +20,7 @@ const MainPage = props => {
                         <Home/>
                     </Route>
                     <Route exact path="/services">
-                        <Services/>
+                        <Services greet={onGreet}/>
                     </Route>
                 </Switch>
             </div>
