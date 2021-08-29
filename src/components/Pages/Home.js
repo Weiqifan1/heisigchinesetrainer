@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../cssFiles/Home.css';
 
 const Home = props => {
     const [userName, setUserName] = useState(props.currentName);
@@ -17,7 +18,7 @@ const Home = props => {
             home
             <form onSubmit={addUserHandler}>
                 <p>Enter your name:</p>
-                <input type="text" name="formUserName" defaultValue={props.currentName} onChange={userNameChangeHandler}/>
+                <input className="center-col" type="text" name="formUserName" defaultValue={props.currentName} onChange={userNameChangeHandler}/>
                 <button type="submit">Tilfoej</button>
             </form>
         </div>

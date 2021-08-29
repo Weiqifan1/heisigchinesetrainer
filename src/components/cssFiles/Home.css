@@ -1,0 +1,8 @@
+
+.center-col {
+    flex: 1;
+    background: #aaa;
+    //overflow-y: scroll;
+    //width: 200px;
+    //height: 100px;
+}
