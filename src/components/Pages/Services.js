@@ -3,7 +3,8 @@ import React from 'react';
 const Services = props => {
     return (
         <div>
-            services
+            <p>services</p>
+            <p>{props.name}</p>
             <button onClick={props.greet}>greet</button>
         </div>
     );

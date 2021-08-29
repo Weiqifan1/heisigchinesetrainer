@@ -1,24 +1,24 @@
 import React, {useState} from 'react';
 
 const Home = props => {
-    const [userName, setUserName] = useState('John');
+    const [userName, setUserName] = useState(props.currentName);
 
-    function setName() {
-        setUserName("hans")
-    }
+    const addUserHandler = (event) => {
+        event.preventDefault();
+        props.onAddChr(userName);
+    };
+
+    const userNameChangeHandler = (event) => {
+        setUserName(event.target.value)
+    };
 
     return (
         <div>
-            <button onClick={setName}> changeName</button>
-            <h1>{userName}</h1>
             home
-
-            <form>
-                <h1>Hello</h1>
+            <form onSubmit={addUserHandler}>
                 <p>Enter your name:</p>
-                <input
-                    type="text"
-                />
+                <input type="text" name="formUserName" defaultValue={props.currentName} onChange={userNameChangeHandler}/>
+                <button type="submit">Tilfoej</button>
             </form>
         </div>
     );

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from "../Navbar/Navbar";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from "./Home";
 import Services from "./Services";
 
 const MainPage = props => {
+
+    const [chrName, setChrName] = useState("lykke");
+
+    const addChrNameHandler = (newName) => {
+        setChrName(newName);
+    };
 
     function onGreet() {
         alert("greet");
@@ -17,10 +23,10 @@ const MainPage = props => {
             <div className="Content">
                 <Switch>
                     <Route exact path="/">
-                        <Home/>
+                        <Home currentName={chrName} onAddChr={addChrNameHandler}/>
                     </Route>
                     <Route exact path="/services">
-                        <Services greet={onGreet}/>
+                        <Services greet={onGreet} name={chrName}/>
                     </Route>
                 </Switch>
             </div>
